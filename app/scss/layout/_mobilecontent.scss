@@ -1,7 +1,7 @@
 // Flex MOBILE
 @include respond-to('mobile'){
-    
     .content a{
+        margin-right: 30px;
         display: flex;
         flex-direction: column;
         
