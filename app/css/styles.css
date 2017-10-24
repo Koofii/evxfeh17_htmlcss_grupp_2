@@ -493,7 +493,8 @@ li {
     100% {
       left: -1600px; } }
   #nav ul {
-    padding-bottom: 70px; }
+    padding-bottom: 70px;
+    opacity: 0.95; }
     #nav ul i {
       margin-top: 20px;
       font-size: 20px; }
@@ -544,7 +545,7 @@ li {
         padding: 0;
         left: 0;
         flex-flow: row wrap;
-        margin-top: 30px;
+        margin-top: 25px;
         background: none; }
         #nav ul li .megamenu ul {
           display: flex;

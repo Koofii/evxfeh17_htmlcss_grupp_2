@@ -1,3 +1,5 @@
+// FALLBACK TABLET
+
 @include respond-to('tablet'){
     *{
       margin: 0 auto;
@@ -28,7 +30,7 @@
       }
     }
   }
-  
+//   FALLBACK DESKTOP
   @include respond-to('desktop'){
     section{
         padding-top: 100px;

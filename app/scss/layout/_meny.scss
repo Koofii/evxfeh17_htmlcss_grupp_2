@@ -46,6 +46,7 @@ li{
 }
 #nav ul{ 
     padding-bottom: 70px;
+    opacity: 0.95;
     & i{
         margin-top: 20px;
         font-size: 20px;
@@ -113,7 +114,7 @@ li{
                 padding: 0;
                 left: 0;
                 flex-flow: row wrap; 
-                margin-top: 30px;
+                margin-top: 25px;
                 background: none;
                 
                 //I megamenyns UL tillämpar vi flex så att vi får en bra fördelning i megamenyn
