@@ -469,6 +469,19 @@ template {
     width: 100%;
     height: auto; } }
 
+@supports (grid-area: auto) {
+  @media (min-width: 432px) {
+    .second-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%; }
+      .second-item li:nth-child(2) {
+        grid-column: 2/3;
+        grid-row: 2/3; }
+      .second-item li {
+        width: 100%; } } }
+
 @media (max-width: 1029px) {
   #nav ul {
     background-color: #d3d0d0;
