@@ -1,0 +1,73 @@
+
+// Har webbläsare stöd för grid - tillämpa nedan
+@supports (grid-area: auto){
+    // Kod för grid tablet
+    @include respond-to('tablet'){
+        .content a{
+            // Tillämpar grid tablet med en kolumn och 4 rader
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            
+            .first-item{
+                grid-row: 1/2;
+            }
+            // I second item har vi en ytterligare grid
+            .second-item{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                width: 100%;
+                // Här placerar vi om första bilden
+                li:nth-child(2){
+                    grid-column: 2/3;
+                    grid-row: 2/3;
+                }
+                li{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    // Tillämpa grid för desktop
+    @include respond-to('desktop'){
+        // Nedan kod använder vi oss utav gridarea för att placera ruta griditems
+        .first-item{
+            grid-area: first;
+        }
+        .second-item{
+            grid-area: second;
+        }
+        .third-item{
+            grid-area: third;
+        }
+        .last-item{
+            grid-area: last;
+        }
+        .content a{
+            width: 70%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: repeat(2,1fr);
+            grid-template-areas: 
+            // här placerar vi grid areas.
+            "first second"
+            "third last";
+
+            .first-item{
+                width: 100%;
+                li img{
+                    @extend .first-item; //extenda från first-item där vi tar med width
+                    height: auto;
+                }
+            }
+            .second-item, .third-item, .last-item{
+                width: 100%;
+                li img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

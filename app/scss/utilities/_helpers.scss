@@ -1,12 +1,11 @@
-// Placeholder.
-
-// %artiklar
-// {
-//     font-size: 14px;
-//     background-color: #e9dcdc;
-    
-
-//     &:hover{
-//         box-shadow: 3px 3px 3px #888888;
-//     }
-// }
+@include respond-to('mobiletablet'){
+    %naven{
+        position: fixed; //Position är fixed för att menyn skall ligga fast på vänster sida.
+        text-align: left;
+        left: -500px; //Detta är för "dölja" menyn för animation
+        height: 100%;
+        overflow: auto;
+        animation-name: hidemenu; //döper animationen för att dölja menyn
+        animation-duration: 0.7s;
+    }
+}
