@@ -1,0 +1,44 @@
+#nav-toggle{
+    display: none;
+}
+//Här sätter vi en ny font för loggan
+#logga{
+    font-family: 'Lobster', cursive;
+    font-size: 22px;
+}
+#loggamobil{
+    font-family: 'Lobster', cursive;
+    font-size: 26px;
+    margin-left: 10px;
+    @include respond-to('desktop'){
+        display: none;
+    }
+}
+.icons{
+    display: flex;
+    display: row;
+}
+
+.fa-facebook-official{
+    color: $facebook;
+}
+.fa-twitter-square{
+    color: $twitter;
+}
+.fa-google-plus-square{
+    color: $google;
+}
+// Hur menyn ska reagera på olika breakpoints
+#nav ul{
+    // display: none;
+    background-color: $colormobile;
+
+//mixin för brytpunkter.
+    @include respond-to('tablet'){
+        display: block;
+        
+    }
+    @include respond-to('desktop'){
+        display: block;
+    }
+}

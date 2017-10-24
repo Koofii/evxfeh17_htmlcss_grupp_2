@@ -1,0 +1,56 @@
+@include respond-to('tablet'){
+    *{
+      margin: 0 auto;
+    }
+    .content a{
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      .first-item{
+        width: 100%;
+        li img{
+          width: 100%;
+          height: auto;
+        }
+      }
+      .second-item, .third-item, .last-item{
+        display: flex;
+        flex-wrap: wrap;
+        p{
+          display: none;
+        }
+        li{
+          width: 50%;
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  
+  @include respond-to('desktop'){
+    section{
+        padding-top: 100px;
+    }
+    .content a{
+      width: 60%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      
+      .first-item{
+        width: 50%;
+        li img{
+          width: 100%;
+          height: auto;
+        }
+      }
+  
+      .second-item, .third-item, .last-item{
+        display: flex;
+        width: 50%;
+  
+      }
+    }
+  }

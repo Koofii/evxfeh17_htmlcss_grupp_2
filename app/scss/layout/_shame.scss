@@ -1,0 +1,12 @@
+// Sätter en font-size på label men i desktop-läge döljer vi den.
+
+label{
+    font-size: 25px;
+    margin-left: 10px;
+    @include respond-to(desktop){
+     display: none;   
+    }
+}
+label{
+    cursor: pointer;
+}

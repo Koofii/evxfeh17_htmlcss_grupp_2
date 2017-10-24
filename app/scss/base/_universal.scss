@@ -1,0 +1,27 @@
+*{
+    font-family: 'Merriweather Sans', sans-serif;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+figure{
+    margin: 0;
+}
+body{
+    width: 90%;
+    margin: 0 auto;
+
+    @include respond-to('desktop'){
+        width: 100%;
+        
+    }
+    @include respond-to('tablet'){
+        width: 100%;
+    }
+}

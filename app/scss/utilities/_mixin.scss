@@ -1,0 +1,13 @@
+//mixins
+
+// Mixin för breakpoints.
+
+@mixin respond-to($breakpoint) {
+    // om det finns i mappen
+    @if map-has-key($breakpoints, $breakpoint) {
+        //skapa media query baserat på värdet
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+}

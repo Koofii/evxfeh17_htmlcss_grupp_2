@@ -1,0 +1,157 @@
+li{
+    list-style: none;
+}
+// Här bygger vi menyn för mobil och tablet-brytpunkterna.
+@include respond-to('mobiletablet'){
+
+    // Här sätter vi kod för menyn i mobilt och tablet-läge
+#nav{
+    position: fixed; //Position är fixed för att menyn skall ligga fast på vänster sida.
+    text-align: left;
+    left: -500px; //Detta är för "dölja" menyn för animation
+    height: 100%;
+    overflow: auto;
+    animation-name: hidemenu; //döper animationen för att dölja menyn
+    animation-duration: 0.7s;
+
+    & ul{
+        background-color: $colormenu; //här använder vi oss av en variabel för att sätta en backgroundsfärg på menyn.
+        padding: 2px;
+        margin: 2px;
+    }
+    
+}
+//Nedan kod gäller för att placera menyn när man använder checkboxen
+#nav-toggle:checked + header #nav{
+    display: block;
+    position: fixed;
+    left: 0;
+    width: 60%;
+    animation-name: showmenu; //sätter namn för att kunna använda menyn när man 
+    animation-duration: 0.7s; //Hur lång tid det ska ta innan menyn är helt ute.
+    padding-bottom: 100px;
+
+    @include respond-to('mobile'){
+        width: 70%;
+    }
+}
+/* Animation för meny */
+@keyframes showmenu{
+    0% {left:-1600px;}   
+    100% {left: 0px;}
+}
+@keyframes hidemenu{
+    0%{left: 0px;}
+    100%{left:-1600px;}
+}
+#nav ul{ 
+    padding-bottom: 70px;
+    & i{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    & h4{
+    font-size: 17px;
+    }
+    & li{
+        color: $menytext;
+    }
+    & li a{
+        color: $menytext;
+    }
+    .megamenu{
+        margin-left: 10px;
+        ul li{
+            color: $google;
+            a {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+#nav ul ul{
+    margin: 0;
+    padding: 0;
+    & li{
+        font-size: 15px;
+        margin: 2px;
+        color: $menytext;
+        & a{
+            color: $menytext;
+        }
+    }
+}
+.hem{
+    font-size: 23px;
+}
+}
+@include respond-to('desktop'){
+    .megamenu li{
+        display: none; //För att dölja megamenyn.
+    }
+    #nav ul{
+        display: flex; //Tillämpar flex för menyn så 
+        flex-direction: row;
+        justify-content: space-around; //Använder spacearound för att få jämn fördelning i menyn, logga och icons
+        position: fixed;
+        width: 100%; //Så att navbaren lägger sig över hela skrämen i desktop-läge
+        background-color: $colormenu;
+        & i{
+            font-size: 30px;
+        }
+        & li{
+            font-size: 20px;
+            padding: 20px;
+            
+            & a{
+                color: $menudesktoptext;
+            }
+            &:hover .megamenu li{
+                display: block; //för att ta fram megamenyn när man hover över Produkter
+            }
+            & .megamenu{
+                padding: 0;
+                left: 0;
+                flex-flow: row wrap; 
+                margin-top: 30px;
+                background: none;
+                
+                //I megamenyns UL tillämpar vi flex så att vi får en bra fördelning i megamenyn
+                 ul{ 
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1 1 33%; //För att få 3 kolumner i megamenyn.
+                    position: relative;
+                    justify-content: flex-start;
+                    background: $colormenu;
+                    opacity: 0.9;
+
+                     li{
+                        font-size: 16px;
+                        padding: 3px;;
+                        margin: 0;
+                        text-align: left;
+                        color: $google;
+
+                        &:nth-child(1){
+                            margin-top: 10px;
+                            text-decoration: underline;
+                        }
+                        &:nth-child(2){
+                            margin-top: 10px;
+                        }
+
+                        & a{
+                            color: rgb(44, 40, 40);
+
+                            &:hover{
+                                color: $twitter;
+                                text-decoration: underline; //lite hovereffekt över listorna i megamenyn
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
