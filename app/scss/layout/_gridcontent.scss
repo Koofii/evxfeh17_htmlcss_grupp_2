@@ -62,9 +62,9 @@
                 }
             }
             .second-item, .third-item, .last-item{
-                width: 100%;
+                width: 100%; //För att divarna ska täcka hela ytan
                 li img{
-                    width: 100%;
+                    width: 100%; //För att bilderna ska ta upp hela gridytan
                     height: auto;
                 }
             }
